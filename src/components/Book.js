@@ -5,7 +5,7 @@ function Book() {
         <h4>Action</h4>
         <h2>The Hunger Games</h2>
         <h5>Suzzane Collins</h5>
-        <ul>
+        <ul className="buttons">
           <li>
             <button type="button" id="comments">Comments</button>
           </li>
