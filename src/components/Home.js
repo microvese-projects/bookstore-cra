@@ -1,7 +1,12 @@
+import React from 'react';
+import BookList from './Booklist';
+import Form from './Form';
+
 function Home() {
   return (
     <>
-      <h1>Home Page</h1>
+      <BookList />
+      <Form />
     </>
   );
 }
