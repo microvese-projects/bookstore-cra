@@ -1,9 +1,12 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addBook } from '../redux/books/booksSlice';
 
 function Form() {
   const [details, setDetails] = useState({
     title: '',
     author: '',
+    category: '',
   });
 
   function handleSubmit(e) {
@@ -16,6 +19,11 @@ function Form() {
         ...prev,
         author: e.target.value,
       }));
+    } else if (e.target.id === 'category') {
+      setDetails((prev) => ({
+        ...prev,
+        category: e.target.value,
+      }));
     } else {
       setDetails((prev) => ({
         ...prev,
@@ -23,6 +31,9 @@ function Form() {
       }));
     }
   }
+
+  const dispatch = useDispatch();
+
   return (
     <div className="form">
       <h2>ADD NEW BOOK</h2>
@@ -37,13 +48,35 @@ function Form() {
         />
         <input
           type="text"
+          placeholder="Category..."
+          id="category"
+          onChange={handleChange}
+          value={details.category}
+          required
+        />
+        <input
+          type="text"
           placeholder="Author's name"
           id="author"
           onChange={handleChange}
           value={details.author}
           required
         />
-        <button type="submit">ADD BOOK</button>
+        <button
+          type="submit"
+          onClick={() => {
+            if (details.title !== '') {
+              dispatch(addBook(details));
+              setDetails({
+                title: '',
+                author: '',
+                category: '',
+              });
+            }
+          }}
+        >
+          ADD BOOK
+        </button>
       </form>
     </div>
   );

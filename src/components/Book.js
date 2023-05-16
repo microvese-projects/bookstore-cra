@@ -1,36 +1,30 @@
-function Book() {
+import PropTypes from 'prop-types';
+import Buttons from './Buttons';
+import Progress from './Progress';
+import Status from './Status';
+
+function Book({
+  itemId, title, author, category,
+}) {
   return (
-    <div className="book">
+    <li className="book">
       <div className="details">
-        <h4>Action</h4>
-        <h2>The Hunger Games</h2>
-        <h5>Suzzane Collins</h5>
-        <ul className="buttons">
-          <li>
-            <button type="button" id="comments">Comments</button>
-          </li>
-          <li>
-            <button type="button" id="remove">Remove</button>
-          </li>
-          <li>
-            <button type="button" id="edit">Edit</button>
-          </li>
-        </ul>
+        <h4>{category}</h4>
+        <h2>{title}</h2>
+        <h5>{author}</h5>
+        <Buttons id={itemId} />
       </div>
-      <div className="status">
-        <div className="circle" />
-        <div className="stats">
-          <p className="percentage">64%</p>
-          <p className="completed">Completed</p>
-        </div>
-      </div>
-      <div className="progress">
-        <h5>CURRENT CHAPTER</h5>
-        <h4>Chapter 17</h4>
-        <button type="button">UPDATE PROGRESS</button>
-      </div>
-    </div>
+      <Status />
+      <Progress />
+    </li>
   );
 }
+
+Book.propTypes = {
+  author: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+  itemId: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+};
 
 export default Book;
