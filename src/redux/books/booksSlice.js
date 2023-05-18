@@ -20,9 +20,19 @@ export const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
   }
 });
 
-export const postBooks = createAsyncThunk('books/addBooksApi', async (book) => {
+export const postBooks = createAsyncThunk('books/postBookApi', async (book) => {
   try {
     const resp = await axios.post(URL, book);
+    return resp.data;
+  } catch (err) {
+    return err.message;
+  }
+});
+
+export const removeBookApi = createAsyncThunk('books/removeBookApi', async (id) => {
+  const removeURL = `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/7eYGb1rtI2H338Czh3wT/books/${id}`;
+  try {
+    const resp = await axios.delete(removeURL);
     return resp.data;
   } catch (err) {
     return err.message;
@@ -60,6 +70,9 @@ const booksSlice = createSlice({
       .addCase(postBooks.fulfilled, (state) => {
         state.posted = true;
         state.success = true;
+      })
+      .addCase(removeBookApi.rejected, (state, action) => {
+        state.error = action.error.message;
       });
   },
 });
