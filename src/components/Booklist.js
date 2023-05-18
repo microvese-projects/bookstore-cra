@@ -18,6 +18,12 @@ function BookList() {
         <p>Loading...</p>
       </div>
     );
+  } if (!loading && booksArr.length === 0) {
+    return (
+      <div className="empty-list">
+        <p>The list of books is empty!</p>
+      </div>
+    );
   }
 
   return (
