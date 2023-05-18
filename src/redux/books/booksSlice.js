@@ -5,11 +5,28 @@ const URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstor
 
 const initialState = {
   booksArr: [],
+  posted: false,
+  loading: false,
+  success: false,
+  error: null,
 };
 
 export const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
-  const resp = await axios(URL);
-  return [...resp.data];
+  try {
+    const resp = await axios(URL);
+    return resp.data;
+  } catch (err) {
+    return err.message;
+  }
+});
+
+export const postBooks = createAsyncThunk('books/addBooksApi', async (book) => {
+  try {
+    const resp = await axios.post(URL, book);
+    return resp.data;
+  } catch (err) {
+    return err.message;
+  }
 });
 
 const booksSlice = createSlice({
@@ -30,8 +47,26 @@ const booksSlice = createSlice({
   },
   extraReducers(builder) {
     builder
+      .addCase(fetchBooks.pending, (state) => {
+        state.loading = true;
+      })
       .addCase(fetchBooks.fulfilled, (state, action) => {
-        state.booksArr = action.payload;
+        state.loading = false;
+
+        const dataKeys = Object.keys(action.payload);
+
+        state.booksArr = dataKeys.map((key) => ({
+          itemId: key,
+          ...action.payload[key][0],
+        }));
+        state.posted = false;
+      })
+      .addCase(fetchBooks.rejected, (state, action) => {
+        state.error = action.error.message;
+      })
+      .addCase(postBooks.fulfilled, (state) => {
+        state.posted = true;
+        state.success = true;
       });
   },
 });

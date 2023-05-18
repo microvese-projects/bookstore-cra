@@ -6,11 +6,19 @@ import { fetchBooks } from '../redux/books/booksSlice';
 function BookList() {
   const dispatch = useDispatch();
 
-  const { booksArr } = useSelector((state) => state.books);
+  const { booksArr, loading, posted } = useSelector((state) => state.books);
 
   useEffect(() => {
     dispatch(fetchBooks());
-  }, []);
+  }, [posted, dispatch]);
+
+  if (loading) {
+    return (
+      <div className="loading">
+        <p>Loading...</p>
+      </div>
+    );
+  }
 
   return (
     <ul>
