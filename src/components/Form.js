@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addBook } from '../redux/books/booksSlice';
+import { addBook, postBooks } from '../redux/books/booksSlice';
 
 function Form() {
   const [details, setDetails] = useState({
@@ -65,8 +65,15 @@ function Form() {
         <button
           type="submit"
           onClick={() => {
-            if (details.title !== '') {
-              dispatch(addBook(details));
+            if (details.title !== '' && details.author !== '' && details.category !== '') {
+              const newBook = {
+                item_id: `Book${Math.floor(Math.random() * 1000)}`,
+                title: details.title,
+                author: details.author,
+                category: details.category,
+              };
+              dispatch(postBooks(newBook));
+              dispatch(addBook(newBook));
               setDetails({
                 title: '',
                 author: '',
