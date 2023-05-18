@@ -6,11 +6,11 @@ import { fetchBooks } from '../redux/books/booksSlice';
 function BookList() {
   const dispatch = useDispatch();
 
-  const { booksArr, loading, posted } = useSelector((state) => state.books);
+  const { booksArr, loading } = useSelector((state) => state.books);
 
   useEffect(() => {
     dispatch(fetchBooks());
-  }, [posted, dispatch]);
+  }, [dispatch]);
 
   if (loading) {
     return (
@@ -28,10 +28,11 @@ function BookList() {
 
   return (
     <ul>
-      {booksArr.map((each) => (
-        // eslint-disable-next-line react/jsx-props-no-spreading
-        <Book key={each.itemId} {...each} />
-      ))}
+      {booksArr
+        .map((each) => (
+          // eslint-disable-next-line react/jsx-props-no-spreading
+          <Book key={each.itemId} {...each} />
+        ))}
     </ul>
   );
 }
