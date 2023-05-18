@@ -62,7 +62,7 @@ const booksSlice = createSlice({
         const dataKeys = Object.keys(action.payload);
 
         state.booksArr = dataKeys.map((key) => ({
-          itemId: key,
+          item_id: key,
           ...action.payload[key][0],
         }));
         state.posted = false;

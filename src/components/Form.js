@@ -67,7 +67,7 @@ function Form() {
           onClick={() => {
             if (details.title !== '' && details.author !== '' && details.category !== '') {
               const newBook = {
-                item_id: Math.floor(Math.random() * 1000),
+                item_id: `Book${Math.floor(Math.random() * 1000)}`,
                 title: details.title,
                 author: details.author,
                 category: details.category,

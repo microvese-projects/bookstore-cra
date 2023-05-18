@@ -26,12 +26,24 @@ function BookList() {
     );
   }
 
+  const sortedArr = [...booksArr].sort((a, b) => {
+    const titleA = a.title.toLowerCase();
+    const titleB = b.title.toLowerCase();
+    if (titleA < titleB) {
+      return -1;
+    }
+    if (titleA > titleB) {
+      return 1;
+    }
+    return 0;
+  });
+
   return (
     <ul>
-      {booksArr
+      {sortedArr
         .map((each) => (
           // eslint-disable-next-line react/jsx-props-no-spreading
-          <Book key={each.itemId} {...each} />
+          <Book key={each.item_id} {...each} />
         ))}
     </ul>
   );
