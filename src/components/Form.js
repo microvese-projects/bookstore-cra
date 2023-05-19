@@ -3,14 +3,34 @@ import { useDispatch } from 'react-redux';
 import { addBook, postBooks } from '../redux/books/booksSlice';
 
 function Form() {
+  const [alert, setAlert] = useState(false);
   const [details, setDetails] = useState({
     title: '',
     author: '',
     category: '',
   });
 
+  const dispatch = useDispatch();
+
   function handleSubmit(e) {
     e.preventDefault();
+    if (details.category !== '') {
+      const newBook = {
+        item_id: `Book${Math.floor(Math.random() * 1000)}`,
+        title: details.title,
+        author: details.author,
+        category: details.category,
+      };
+      dispatch(postBooks(newBook));
+      dispatch(addBook(newBook));
+      setDetails({
+        title: '',
+        author: '',
+        category: '',
+      });
+    } else {
+      setAlert(true);
+    }
   }
 
   function handleChange(e) {
@@ -32,8 +52,6 @@ function Form() {
     }
   }
 
-  const dispatch = useDispatch();
-
   return (
     <div className="form">
       <h2>ADD NEW BOOK</h2>
@@ -48,39 +66,28 @@ function Form() {
         />
         <input
           type="text"
-          placeholder="Category..."
-          id="category"
-          onChange={handleChange}
-          value={details.category}
-          required
-        />
-        <input
-          type="text"
           placeholder="Author's name"
           id="author"
           onChange={handleChange}
           value={details.author}
           required
         />
+        <select
+          id="category"
+          onChange={handleChange}
+          value={details.category}
+          className={alert ? 'red-border' : ''}
+          required
+        >
+          <option value="" disabled selected>--Select--</option>
+          <option value="Science Fiction">Science Fiction</option>
+          <option value="Action">Action</option>
+          <option value="Drama">Drama</option>
+          <option value="Comedy">Comedy</option>
+          <option value="Documentary">Documentary</option>
+        </select>
         <button
           type="submit"
-          onClick={() => {
-            if (details.title !== '' && details.author !== '' && details.category !== '') {
-              const newBook = {
-                item_id: `Book${Math.floor(Math.random() * 1000)}`,
-                title: details.title,
-                author: details.author,
-                category: details.category,
-              };
-              dispatch(postBooks(newBook));
-              dispatch(addBook(newBook));
-              setDetails({
-                title: '',
-                author: '',
-                category: '',
-              });
-            }
-          }}
         >
           ADD BOOK
         </button>

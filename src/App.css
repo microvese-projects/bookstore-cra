@@ -324,3 +324,7 @@ svg {
   border: 1px solid var(--dark-gray);
   border-radius: 50%;
 }
+
+.red-border {
+  border-color: rosybrown;
+}
