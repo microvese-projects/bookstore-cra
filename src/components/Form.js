@@ -78,7 +78,7 @@ function Form() {
           className={alert ? 'red-border' : ''}
           required
         >
-          <option value="" disabled selected>--Select--</option>
+          <option value="" disabled>--Select--</option>
           <option value="Science Fiction">Science Fiction</option>
           <option value="Action">Action</option>
           <option value="Drama">Drama</option>
