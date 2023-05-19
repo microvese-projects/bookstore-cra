@@ -43,13 +43,6 @@ const booksSlice = createSlice({
   name: 'books',
   initialState,
   reducers: {
-    addBook: (state, action) => {
-      state.booksArr.push(action.payload);
-    },
-    removeBook: (state, action) => {
-      const id = action.payload;
-      state.booksArr = state.booksArr.filter((each) => each.item_id !== id);
-    },
   },
   extraReducers(builder) {
     builder
@@ -70,9 +63,13 @@ const booksSlice = createSlice({
       .addCase(fetchBooks.rejected, (state, action) => {
         state.error = action.error.message;
       })
-      .addCase(postBooks.fulfilled, (state) => {
+      .addCase(postBooks.fulfilled, (state, action) => {
         state.posted = true;
         state.success = true;
+        state.booksArr.push(action.meta.arg);
+      })
+      .addCase(removeBookApi.fulfilled, (state, action) => {
+        state.booksArr = state.booksArr.filter((each) => each.item_id !== action.meta.arg);
       })
       .addCase(removeBookApi.rejected, (state, action) => {
         state.error = action.error.message;

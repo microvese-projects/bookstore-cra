@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addBook, postBooks } from '../redux/books/booksSlice';
+import { postBooks } from '../redux/books/booksSlice';
 
 function Form() {
   const [alert, setAlert] = useState(false);
@@ -22,7 +22,6 @@ function Form() {
         category: details.category,
       };
       dispatch(postBooks(newBook));
-      dispatch(addBook(newBook));
       setDetails({
         title: '',
         author: '',
