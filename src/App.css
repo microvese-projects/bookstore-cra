@@ -80,3 +80,57 @@ hr,
   justify-content: space-between;
   gap: 10px;
 }
+
+.details {
+  min-width: 30%;
+}
+
+ul {
+  list-style: none;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.percentage {
+  height: 2.438rem;
+  margin: 0.063rem 5.75rem 0 0.688rem;
+  font-family: var(--montserrat);
+  font-size: 2rem;
+  color: #121212;
+}
+
+.completed {
+  width: 5rem;
+  height: 1.125rem;
+  margin: 0.438rem 4.938rem 0.75rem 0.75rem;
+  opacity: 0.5;
+  font-family: var(--montserrat);
+  font-size: 0.875rem;
+}
+
+/* circle progress */
+
+@keyframes growProgressBar {
+  0%,
+  15% { --pgPercentage: 0; }
+  100% { --pgPercentage: var(--value); }
+}
+
+.circle {
+  --size: 5rem;
+  --fg: #0290ff;
+  --bg: var(--gray);
+  --pgPercentage: var(--value);
+
+  animation: growProgressBar 1s 1 forwards;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background:
+    radial-gradient(closest-side, var(--white) 80%, transparent 0 99.9%, white 0),
+    conic-gradient(var(--fg) calc(var(--pgPercentage) * 1%), var(--bg) 0);
+}
