@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import Categories from './components/Categories';
 import Nav from './components/Nav';
+import NotFound from './components/NotFound';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="categories" element={<Categories />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

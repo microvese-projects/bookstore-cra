@@ -275,10 +275,15 @@ form {
 
 .loading,
 .empty-list,
-.under-construction {
+.under-construction,
+.not-found {
   display: grid;
   place-items: center;
   padding-block: 100px;
   font-size: 30px;
   color: var(--dark-gray);
+}
+
+.not-found {
+  color: palevioletred;
 }
