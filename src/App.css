@@ -287,3 +287,40 @@ form {
 .not-found {
   color: palevioletred;
 }
+
+.contact {
+  margin-left: auto;
+}
+
+.contact a {
+  width: max-content;
+  height: max-content;
+  display: grid;
+  margin: 0;
+  place-items: center;
+  padding: 10px;
+  border: 1px solid var(--dark-gray);
+  border-radius: 50%;
+}
+
+svg {
+  color: #0290ff;
+  height: 25px;
+}
+
+.contact-page {
+  display: grid;
+  place-items: center;
+  padding-top: 100px;
+  gap: 10px;
+  font-size: 1.5rem;
+  line-height: 120%;
+}
+
+.contact-page h2 {
+  color: #0290ff;
+}
+
+.contact-page a:hover {
+  color: #0290ff;
+}
