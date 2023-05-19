@@ -60,6 +60,10 @@ This allows the users to access the different sections of the app onclick.
 This is the welcome page that shows the list of books managed in the app.
 - **[Form]**
 This allows the user to books to the list by keying in the title and author of the book. 
+- **[List]**
+This shows the list of books added by the user.
+- **[Book]**
+This shows details about the book and the completed status.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -123,6 +127,7 @@ I plan to add the following features:
 
 - [ ] **[Categories]**
 - [ ] **[ALready_read]**
+- [ ] **[Profile]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
