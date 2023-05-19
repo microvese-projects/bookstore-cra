@@ -37,17 +37,6 @@ nav {
   color: #0290ff;
 }
 
-.contact a {
-  width: max-content;
-  height: max-content;
-  display: grid;
-  margin: 0;
-  place-items: center;
-  padding: 10px;
-  border: 1px solid var(--dark-gray);
-  border-radius: 50%;
-}
-
 .navbar a {
   text-decoration: none;
   width: 3.688rem;
@@ -323,4 +312,15 @@ svg {
 
 .contact-page a:hover {
   color: #0290ff;
+}
+
+.contact .profile-link {
+  width: max-content;
+  height: max-content;
+  display: grid;
+  margin: 0;
+  place-items: center;
+  padding: 10px;
+  border: 1px solid var(--dark-gray);
+  border-radius: 50%;
 }
