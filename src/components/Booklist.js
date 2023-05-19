@@ -22,6 +22,8 @@ function BookList() {
     return (
       <div className="empty-list">
         <p>The list of books is empty!</p>
+        <br />
+        <p>Add a book!</p>
       </div>
     );
   }
@@ -39,7 +41,7 @@ function BookList() {
   });
 
   return (
-    <ul>
+    <ul className="booklist">
       {sortedArr
         .map((each) => (
           // eslint-disable-next-line react/jsx-props-no-spreading

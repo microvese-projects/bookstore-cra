@@ -10,9 +10,9 @@ function Book({
   return (
     <li className="book">
       <div className="details">
-        <h4>{category}</h4>
-        <h2>{title}</h2>
-        <h5>{author}</h5>
+        <h4 className="book-category">{category}</h4>
+        <h2 className="book-title">{title}</h2>
+        <h5 className="book-author">{author}</h5>
         <Buttons id={item_id} />
       </div>
       <Status />
