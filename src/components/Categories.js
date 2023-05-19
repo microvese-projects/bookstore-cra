@@ -6,7 +6,7 @@ function Categories() {
 
   if (!status) {
     return (
-      <div>
+      <div className="under-construction">
         <h3>Under Construction</h3>
       </div>
     );
