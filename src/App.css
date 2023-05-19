@@ -55,3 +55,28 @@ nav {
 .navbar a:hover {
   color: #474646;
 }
+
+hr,
+.navbar,
+.book,
+.form {
+  width: 90%;
+  max-width: 1600px;
+  margin-inline: auto;
+}
+
+.booklist {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 15px;
+}
+
+.book {
+  display: flex;
+  background-color: var(--white);
+  padding: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
