@@ -32,11 +32,15 @@
 # 📖 Bookstore <a name="about-project"></a>
 
 ![Alt text](public/landing.png)
-**Bookstore** is a project that was created inline with the Microverse curriculumn. It is an app that allows the user to manage the progress/status of different books. A user can add, delete, edit, and update books using the app. I used React in this project. 
+**[Bookstore](https://bookstore-dhmd.onrender.com)** is a project that was created inline with the Microverse curriculumn. It is an app that allows the user to manage the progress/status of different books. A user can add, delete, edit, and update books using the app. I used React in this project. 
 
+.
+
+[View project](https://bookstore-dhmd.onrender.com)
+
+.
 
 ## 🛠 Built With <a name="built-with"></a>
-
 ### Tech Stack <a name="tech-stack"></a>
 
 
