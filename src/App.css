@@ -328,3 +328,15 @@ svg {
 .red-border {
   border-color: rosybrown;
 }
+
+.grayed {
+  color: gray;
+}
+
+.category-list {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10rem;
+  gap: 20px;
+  /* background-color: #0290ff; */
+}
