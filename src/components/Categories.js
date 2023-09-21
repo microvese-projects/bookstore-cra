@@ -1,20 +1,27 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import SpecifiedCategory from './specifiedCategory';
 
 function Categories() {
-  const { status } = useSelector((state) => state.categories);
+  const books = useSelector((state) => state.books.booksArr);
 
-  if (!status) {
+  if (!books) {
     return (
       <div className="under-construction">
-        <h3>Under Construction</h3>
+        <h3>No books in store!</h3>
       </div>
     );
   }
+
   return (
-    <>
-      <h1>Categories Page</h1>
-    </>
+    <section className="category-list">
+      <h1 className="categories-heading">Categories</h1>
+      <SpecifiedCategory books category="Science Fiction" />
+      <SpecifiedCategory books category="Action" />
+      <SpecifiedCategory books category="Drama" />
+      <SpecifiedCategory books category="Commedy" />
+      <SpecifiedCategory books category="Documentary" />
+    </section>
   );
 }
 
