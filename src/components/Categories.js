@@ -15,7 +15,7 @@ function Categories() {
 
   return (
     <section className="category-list">
-      <h1>Categories Page</h1>
+      <h1 className="categories-heading">Categories</h1>
       <SpecifiedCategory books category="Science Fiction" />
       <SpecifiedCategory books category="Action" />
       <SpecifiedCategory books category="Drama" />

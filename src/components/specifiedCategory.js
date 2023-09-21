@@ -11,8 +11,8 @@ const SpecifiedCategory = ({ category }) => {
     const elements = books.map((each) => {
       if (each.category === category) {
         return (
-          <p key={each.item_id}>
-            {`${each.title} by ${each.author}`}
+          <p key={each.item_id} className="book">
+            {`${each.title.toUpperCase()} by ${each.author}`}
           </p>
         );
       }
