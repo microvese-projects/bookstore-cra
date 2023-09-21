@@ -334,6 +334,7 @@ svg {
 }
 
 .categories-heading {
+  margin-top: 50px;
   font-weight: 800;
   font-size: 2rem;
   color: #0290ff;
