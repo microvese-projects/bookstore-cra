@@ -355,3 +355,8 @@ svg {
   margin: 0 auto;
   line-height: 2rem;
 }
+
+.count {
+  font-style: italic;
+  margin-left: 10px;
+}

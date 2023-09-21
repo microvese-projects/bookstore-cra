@@ -23,7 +23,11 @@ const SpecifiedCategory = ({ category }) => {
 
   return (
     <div>
-      <h3 className="book-title">{category}</h3>
+      <h3 className="book-title">
+        <span>{category}</span>
+        :
+        <span className="count">{count}</span>
+      </h3>
       {count === 0 ? (
         <p className="grayed">
           No Books on
